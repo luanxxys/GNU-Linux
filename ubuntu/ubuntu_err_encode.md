@@ -74,5 +74,5 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
             2. 依次开启 /apps/gedit-2/preferences/encodings/ 双击右侧 auto_detected, 在弹出对话框中点选 Add，添加 Values 值为 GB2312 ,确定后选中，点选 Up 按钮将其移至第一位。
             3. 同样方法，对 show_in_menu 进行设置，并将 GB2312 置于首位。
 
-    还有一种方法是用 openoffice 打开 txt 文件时，会让你选择编码，选 GB2312 就行了。
+        还有一种方法是用 openoffice 打开 txt 文件时，会让你选择编码，选 GB2312 就行了。
 
