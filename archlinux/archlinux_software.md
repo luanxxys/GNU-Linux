@@ -43,33 +43,9 @@
 
     # pacman -S wqy-microhei
 
-## 软件
+### 软件
 
-libreoffice pycharm virtualbox netease-cloud-music
-qBittorrent tor-browser guke-terminal ntfs-3g
-git openssh zip rar p7zip unzip unrar zeal
-google-chrome lantern fbreader wireshark
-xmind albert gnome-shell-pomodoro
-
-#### 待尝试
-
-thefuck tmux  
-chmsee-查看chm文件
-
-### [fcitx](github.com/luanxxys/software/fcitx)
-
-#### zsh 美化
-
-    安装完成之后打开.zshrc文件配置。我喜欢将主题设置为random，启用几个插件，并添加vim的简化命令。
-
-    ZSH_THEME="random"
-
-    plugins=(git archlinux history mvn python git-extras textmate lighthouse autojump)
-
-    # Example aliases
-    alias zshconfig="mate ~/.zshrc"
-    alias ohmyzsh="mate ~/.oh-my-zsh"
-    alias vi=vim
+[参考](https://github.com/luanxxys/software)
 
 ### arch-chroot 修复系统
 
@@ -89,3 +65,4 @@ U盘启动进入 livecd 的环境
     pacman -S udev 
     pacman -S mkinitcpio
     mkinincpio -p linux
+    ...

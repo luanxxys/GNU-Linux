@@ -212,18 +212,14 @@ Set the LANG variable in locale.conf
 
 #### 安装图形界面
 
-安装i3窗口管理器
+安装 i3 窗口管理器
 
     sudo pacman -S i3
 
-安装Gnome
+安装 Gnome
 
     sudo pacman -S gnome
 > 各图形界面下，只有 gnome 环境下 chrome 能直接使用 lantern
-
-安装Xfce
-
-    sudo pacman -S xfce4
 
 #### 启动图形界面前提前配置网络
 
