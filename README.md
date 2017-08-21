@@ -8,7 +8,7 @@
 
 ## Catalaog
 
-    ├── debian                       所用示例图片
-        └── ubuntu                   文件夹说明
+    ├── debian                       
+        └── ubuntu                   
     ├── fedora                      （待补充）
     └── opensuse                    （缺失）
