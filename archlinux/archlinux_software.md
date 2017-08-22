@@ -47,6 +47,10 @@
 
 [参考](https://github.com/luanxxys/software)
 
+### Issues
+
+1. 安装 fingerprint-gui 后，提示找不到指纹设备（x1 yoga 2016）
+
 ### arch-chroot 修复系统
 
 U盘启动进入 livecd 的环境
