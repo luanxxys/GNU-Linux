@@ -32,6 +32,7 @@
     $ yaourt-link -r ppsspp  # 删除系统中的软链接
     $ yaourt -R ppsspp   # 删除 ppsspp
     $ yaourt -Q   # 查询已安装软件包
+    $ yaourt -Qdt   # 删除全部孤立无用软件包
 
 ### 安装字体
 
