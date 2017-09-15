@@ -8,7 +8,8 @@
 
 ## Catalaog
 
+    ├── Archliunx
     ├── debian                       
         └── ubuntu                   
-    ├── fedora                      （待补充）
+    ├── fedora
     └── opensuse                    （缺失）
