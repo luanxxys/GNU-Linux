@@ -11,11 +11,11 @@ uname -a
 
 ### 替换自带的更新源
 
-/etc/apt/sources.list
+    /etc/apt/sources.list
 
 ### Bash 安装目录（直接看看不到）
 
-C:\Users\colony\AppData\Local\lxss
+    C:\Users\colony\AppData\Local\lxss
 
 ### 更改默认家目录
 
@@ -24,5 +24,3 @@ C:\Users\colony\AppData\Local\lxss
 把 JACK 这个帐户对应的默认目录 `/home/JACK` 改为 `/home/JACK/code` 
 
 则每次登录时都会打开到 `code` 
-
-

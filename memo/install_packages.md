@@ -2,18 +2,18 @@
 
 - 安装
 
-    rpm -ivh <rpm_name>.rpm
+        rpm -ivh <rpm_name>.rpm
 
-        -i 安装软件
-        -t 测试安装，不是真的安装
-        -p 显示安装进度
-        -f 忽略任何错误
-        -U 升级安装
-        -v 检测套件是否正确安装
+            -i 安装软件
+            -t 测试安装，不是真的安装
+            -p 显示安装进度
+            -f 忽略任何错误
+            -U 升级安装
+            -v 检测套件是否正确安装
 
 - 卸载
 
-    rpm –e <software_name>
+        rpm –e <software_name>
 
 > dnf 也可以
 
@@ -121,4 +121,3 @@ apt-cache pkgnames
     chmod +x soft.bin
 
     ./soft.bin
-

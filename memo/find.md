@@ -116,5 +116,4 @@ w|字（2字节）
 
 要列出所有长度为零的文件 
 
-    find . -empty 
-
+    find . -empty

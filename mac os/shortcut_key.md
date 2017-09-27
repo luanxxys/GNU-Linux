@@ -5,7 +5,7 @@ Shift|⇧
 Option|⌥
 Control|⌃
 Caps Lock|⇪
-Fn
+Fn|
 
 ### Common shortcuts
 

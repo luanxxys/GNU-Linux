@@ -9,8 +9,8 @@
 
     * #### 安装RPMFusion源：
 
-        	# rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
-    		# rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+            # rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+            # rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
 
     * #### 安装FZUG源（中文Fedora社区的软件源）：
 
@@ -18,18 +18,18 @@
 
     * #### 163源(添加到当前目录下)
 
-        	# wget http://mirrors.163.com/.help/fedora-163.repo
-        	# wget http://mirrors.163.com/.help/fedora-updates-163.repo
+            # wget http://mirrors.163.com/.help/fedora-163.repo
+            # wget http://mirrors.163.com/.help/fedora-updates-163.repo
 
     安装好了源之后，使用命令
 
-        dnf makecache
+        # dnf makecache
 
     将服务器上的软件包信息在本地进行缓存，以提高搜索和安装软件的速度
 
-   sudo dnf clean all && sudo dnf autoremove
+        sudo dnf clean all && sudo dnf autoremove
 
-   sudo dnf update && sudo dnf upgrade
+        sudo dnf update && sudo dnf upgrade
 
 - ### 各种应用程序
 
@@ -42,7 +42,7 @@
         I’ve found that the fastestmirror plugin helps reduce times for downloads and updates, so enabling it is the first thing that I do.  Use the editor of your choice for the below – my example uses gedit, since it’s already installed by default.
 
             sudo vim /etc/dnf/dnf.conf
-        
+
         Add the below line to the bottom of the file, then you’re done.
 
             fastestmirror=true

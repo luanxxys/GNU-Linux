@@ -17,14 +17,18 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
     2. 修改 ubuntu 的字符集
 
         方法一： 修改用户目录下的 .profile 文件，增加以下内容：
+
             LANGUAGE=”zh_CN:zh:en_US:en”
             LANG=zh_CN.GBK
+
         重新登录即可
         > 这个方法只对该用户有效
 
         方法二：修改 /etc/environment，增加以下内容：
+
             LANGUAGE=”zh_CN:zh:en_US:en”
             LANG=zh_CN.GBK
+
         然后重启X即可
         > 这个方法对没有设置 LANG 及 LANGUAGE 环境变量的用户有效
 
@@ -36,7 +40,9 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
 
     以 ubuntu 的终端程序为例，使其正常显示 GBK 编码的方法是
 
-        在 termial 窗口上点击菜单：终端->设置字符编码->选择 GBK
+        在 termial 窗口上点击菜单：
+
+            终端->设置字符编码->选择 GBK
 
     - #### 解决文件名，mp3 标签，文本文件的中文乱码
 
@@ -61,6 +67,7 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
             sudo vi /etc/vim/vimrc
 
         加入以下配置参数
+
             let &termencoding=&encoding
             set fileencodings=utf-8,gb18030,gbk,GB2312,big5
 
@@ -75,4 +82,3 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
             3. 同样方法，对 show_in_menu 进行设置，并将 GB2312 置于首位。
 
         还有一种方法是用 openoffice 打开 txt 文件时，会让你选择编码，选 GB2312 就行了。
-

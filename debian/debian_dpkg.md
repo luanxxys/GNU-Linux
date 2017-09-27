@@ -112,4 +112,3 @@
 
 	dpkg -p package-name
 		eg：dpkg -p cacti
-
