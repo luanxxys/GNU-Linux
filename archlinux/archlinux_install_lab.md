@@ -1,17 +1,27 @@
 # 记录安装过程
-> X1 yoga 硬盘 单系统 EFI+GPT 模式安装
+> 实验室主机，双硬盘，drive2 已安装 win10，在driver1下安装 archlinux， EFI+GPT 模式安装
 
 ## Pre-installation
 
 #### 联网
 
-无线网环境，执行以下命令，并输入连接到的 wifi 密码：
+查看网卡名称
 
-    # wifi-menu
+    # ifconfig
 
-ping 命令判断网络连接是否正常
+设置网卡子网及ip
 
-    # ping -c 3 archlinux.org
+    # ifconfig enp3s0 192.168.11.65 netmask 255.255.255.0
+
+设置默认网关
+
+    # route add default gw 192.168.11.1
+
+设置 DNS
+
+    # vi /etc/resolv.conf
+
+    ```nameserver 202.118.224.100```
 
 #### Verify the boot mode
 
@@ -95,11 +105,6 @@ Run hwclock(8) to generate /etc/adjtime:
 
     # hwclock --systohc
 
-#### 安装网络驱动
-
-    # pacman -S vim iw wpa_supplicant dialog
-> 无线环境下安装必要组件
-
 #### Locale
 
     # vim /etc/locale.gen
@@ -127,15 +132,14 @@ Set the LANG variable in locale.conf
 
 修改如下
 
-    127.0.0.1	localhost.localdomain	localhost
-    ::1		localhost.localdomain	localhost
-    127.0.1.1	arch_luanxxy.localdomain	arch_luanxxy
+    127.0.0.1   localhost.localdomain   localhost
+    ::1     localhost.localdomain   localhost
+    127.0.1.1   arch_luanxxy.localdomain    arch_luanxxy
 
 #### 安装 bootloader
 
     # pacman -S grub-efi-x86_64 efibootmgr
     # grub-install --efi-directory=/boot/efi --bootloader-id=grub
-    #
     # grub-mkconfig -o /boot/grub/grub.cfg
 
 安装后检查
@@ -214,5 +218,3 @@ Set the LANG variable in locale.conf
     sudo pacman -S network-manager-applet
     sudo systemctl disable netctl
     sudo systemctl enable NetworkManager
-
-
