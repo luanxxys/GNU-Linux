@@ -11,7 +11,7 @@
 
 如果你是无线网，请执行以下命令：
 
-    wifi-menu
+    # wifi-menu
 
 ping 命令判断网络连接是否正常
 
@@ -28,8 +28,8 @@ ping 命令判断网络连接是否正常
 ### Partition the disks
 
 #### efi+gpt 模式
-
-    parted -l        查看磁盘状态
+  
+    # parted -l        查看磁盘状态
 
     # parted /dev/sda       进入分区工具
     (parted)mklabel gpt     使用gpt引导格式
@@ -39,7 +39,7 @@ ping 命令判断网络连接是否正常
     (parted)p
     (parted)q
 
-    parted -l
+    # parted -l
 
 #### Format the partitions
 
@@ -58,7 +58,7 @@ ping 命令判断网络连接是否正常
 
 #### Select the mirrors
 
-    #vim /etc/pacman.d/mirrorlist
+    # vim /etc/pacman.d/mirrorlist
 
 添加
 
@@ -172,7 +172,7 @@ Set the LANG variable in locale.conf
     # vim /etc/sudoers
 > 在 root ALL=(ALL)下面仿照格式添加自己的用户名
 
-####重启之后可能上不了网- --> wait  a moment
+#### 重启之后可能上不了网- --> wait  a moment
 
 无线
 
