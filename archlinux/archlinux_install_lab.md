@@ -4,6 +4,7 @@
 ## Pre-installation
 
 #### 联网
+> 有线网，安装前需配置 IP、DNS
 
 查看网卡名称
 
@@ -22,6 +23,10 @@
     # vi /etc/resolv.conf
 
     ```nameserver 202.118.224.100```
+
+ping 命令判断网络连接是否正常
+
+    # ping -c 3 archlinux.org
 
 #### Verify the boot mode
 
@@ -146,14 +151,6 @@ Set the LANG variable in locale.conf
 
     # vim /boot/grub/grub.cfg
 
-#### Reboot
-
-    # exit
-    # umount /mnt/boot
-    # umount /mnt
-    # reboot
-> 卸载掉 iso 文件之后 reboot
-
 #### Root password
 
 登陆 root 账号，设置密码
@@ -169,8 +166,6 @@ Set the LANG variable in locale.conf
     # vim /etc/sudoers
 > 在 root ALL=(ALL)下面仿照格式添加自己的用户名
 
-#### 重启之后可能上不了网- --> wait  a moment
-
 #### 设置pacman彩色输出
 
 打开/etc/pacman.conf文件，找到被注释的#Color，改为Color。pacman就会输出彩色信息，方便查看
@@ -183,13 +178,18 @@ Set the LANG variable in locale.conf
 
     sudo pacman -S xf86-video-intel
 
+#### 安装 AMD 显卡驱动
+
 #### 安装Xorg
 
     sudo pacman -S xorg-server xorg-xinit
 
-#### 安装桌面管理器
+#### 安装图形界面
 
-    sudo pacman -S gdm
+安装 Gnome
+
+    sudo pacman -S gnome
+> 各图形界面下，只有 gnome 环境下 chrome 能直接使用 lantern
 
 设置开机启动 gdm 服务
 
@@ -202,19 +202,15 @@ Set the LANG variable in locale.conf
     ./archibold login-backgroung 你的背景的地址
 > 重启后gdm就会变成你要的背景
 
-#### 安装图形界面
-
-安装 i3 窗口管理器
-
-    sudo pacman -S i3
-
-安装 Gnome
-
-    sudo pacman -S gnome
-> 各图形界面下，只有 gnome 环境下 chrome 能直接使用 lantern
-
 #### 启动图形界面前提前配置网络
 
-    sudo pacman -S network-manager-applet
     sudo systemctl disable netctl
     sudo systemctl enable NetworkManager
+
+#### Reboot
+
+    # exit
+    # umount /mnt/boot
+    # umount /mnt
+    # reboot
+> 卸载掉 iso 文件之后 reboot

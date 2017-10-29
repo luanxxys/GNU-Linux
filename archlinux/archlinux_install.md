@@ -142,14 +142,6 @@ Set the LANG variable in locale.conf
 
     # vim /boot/grub/grub.cfg
 
-#### Reboot
-
-    # exit
-    # umount /mnt/boot
-    # umount /mnt
-    # reboot
-> 卸载掉 iso 文件之后 reboot
-
 #### Root password
 
 登陆 root 账号，设置密码
@@ -164,8 +156,6 @@ Set the LANG variable in locale.conf
     # pacman -S sudo
     # vim /etc/sudoers
 > 在 root ALL=(ALL)下面仿照格式添加自己的用户名
-
-#### 重启之后可能上不了网- --> wait  a moment
 
 #### 设置pacman彩色输出
 
@@ -186,6 +176,7 @@ Set the LANG variable in locale.conf
 #### 安装桌面管理器
 
     sudo pacman -S gdm
+> 若安装 gnome，则不用单独安装 gdm
 
 设置开机启动 gdm 服务
 
@@ -216,3 +207,10 @@ Set the LANG variable in locale.conf
     sudo systemctl enable NetworkManager
 
 
+#### Reboot
+
+    # exit
+    # umount /mnt/boot
+    # umount /mnt
+    # reboot
+> 卸载掉 iso 文件之后 reboot

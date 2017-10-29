@@ -1,8 +1,7 @@
 # virtualbox 中安装 archlinux
 
 #### 安装前联网
-
-虚拟机中使用 NAT 方式联网，可直接借用宿主机的网络
+> 虚拟机中使用 NAT 方式联网，可直接借用宿主机的网络
 
 ping 命令判断网络连接是否正常
 
@@ -122,10 +121,6 @@ Set the LANG variable in locale.conf
     ::1		localhost.localdomain	localhost
     127.0.1.1	arch_luanxxy.localdomain	arch_luanxxy
 
-#### Root password
-
-    # passwd
-
 #### 安装 bootloader
 
     # pacman -S grub-efi-x86_64 efibootmgr
@@ -140,13 +135,9 @@ vbox对efi的模拟只能运行在uefi固件上，还不够完善，所以只认
 
     # vim /boot/grub/grub.cfg
 
-#### Reboot
+#### Root password
 
-    # exit
-    # umount /mnt/boot
-    # umount /mnt
-    # reboot
-> 卸载掉 iso 文件之后 reboot
+    # passwd
 
 #### add user
 
@@ -160,7 +151,7 @@ vbox对efi的模拟只能运行在uefi固件上，还不够完善，所以只认
 
     sudo pacman -S xorg-server xorg-xinit
 
-在安装好了x以及x那一揽子组件之后，这次新版本的驱动似乎把vboxvideo给移除了，所以还需要手动安装vboxvideo等驱动程序
+在安装好了x以及x那一揽子组件之后，这次新版本的驱动似乎把 vboxvideo 给移除了，所以还需要手动安装 vboxvideo 等驱动程序
 
     $ sudo pacman virtualbox-guest-utils
 
@@ -179,6 +170,7 @@ vbox对efi的模拟只能运行在uefi固件上，还不够完善，所以只认
 设置开机启动 gdm 服务
 
     sudo systemctl enable gdm
+> 若安装 gnome，则不用单独安装 gdm
 
 gdm背景：输入以下指令
 
@@ -217,3 +209,11 @@ gdm背景：输入以下指令
 ##### 设置pacman彩色输出
 
 打开/etc/pacman.conf文件，找到被注释的#Color，改为Color。pacman就会输出彩色信息，方便查看
+
+#### Reboot
+
+    # exit
+    # umount /mnt/boot
+    # umount /mnt
+    # reboot
+> 卸载掉 iso 文件之后 reboot
