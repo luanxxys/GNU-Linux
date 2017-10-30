@@ -206,6 +206,15 @@ Set the LANG variable in locale.conf
     sudo systemctl disable netctl
     sudo systemctl enable NetworkManager
 
+####  安装字体
+
+首先使用pacman搜索一下所有字体，然后安装所需的字体：
+
+    # pacman -Ss font
+
+安装文泉微米黑
+
+    # pacman -S wqy-microhei
 
 #### Reboot
 

@@ -210,6 +210,16 @@ gdm背景：输入以下指令
 
 打开/etc/pacman.conf文件，找到被注释的#Color，改为Color。pacman就会输出彩色信息，方便查看
 
+####  安装字体
+
+首先使用pacman搜索一下所有字体，然后安装所需的字体：
+
+    # pacman -Ss font
+
+安装文泉微米黑
+
+    # pacman -S wqy-microhei
+
 #### Reboot
 
     # exit

@@ -1,5 +1,7 @@
 # 记录安装过程
-> 实验室主机，双硬盘，drive2 已安装 win10，在driver1下安装 archlinux， EFI+GPT 模式安装
+> 实验室主机，双硬盘，GPU: AMD/ATI Turks XT [Radeon HD 6670/7670]
+> 
+> drive2 已安装 win10，在driver1下安装 archlinux， EFI+GPT 模式安装
 
 ## Pre-installation
 
@@ -178,8 +180,6 @@ Set the LANG variable in locale.conf
 
     sudo pacman -S xf86-video-intel
 
-#### 安装 AMD 显卡驱动
-
 #### 安装Xorg
 
     sudo pacman -S xorg-server xorg-xinit
@@ -207,6 +207,16 @@ Set the LANG variable in locale.conf
     sudo systemctl disable netctl
     sudo systemctl enable NetworkManager
 
+####  安装字体
+
+首先使用pacman搜索一下所有字体，然后安装所需的字体：
+
+    # pacman -Ss font
+
+安装文泉微米黑
+
+    # pacman -S wqy-microhei
+
 #### Reboot
 
     # exit
@@ -214,3 +224,18 @@ Set the LANG variable in locale.conf
     # umount /mnt
     # reboot
 > 卸载掉 iso 文件之后 reboot
+
+#### 安装 AMD 显卡驱动
+
+查看显卡信息
+
+    lspci | grep VGA
+
+查看显卡状态
+
+    sudo cat /sys/kernel/debug/vgaswitcheroo/switch
+    > 不一定显示有这个文件夹
+
+安装
+
+    yaourt catalyst

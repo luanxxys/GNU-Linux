@@ -34,16 +34,6 @@
     $ yaourt -Q   # 查询已安装软件包
     $ yaourt -Qdt   # 删除全部孤立无用软件包
 
-### 安装字体
-
-首先使用pacman搜索一下所有字体，然后安装所需的字体：
-
-    # pacman -Ss font
-
-安装文泉微米黑
-
-    # pacman -S wqy-microhei
-
 ### 软件
 
 [参考](https://github.com/luanxxys/software)
