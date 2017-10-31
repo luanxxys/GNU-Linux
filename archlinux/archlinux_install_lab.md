@@ -239,3 +239,16 @@ Set the LANG variable in locale.conf
 安装
 
     yaourt catalyst
+> 暂未成功
+
+### 安装效果
+
+开机默认启动 Arch Linux，且无 win10 启动项。
+
+开机 F12，可选择 Windows boot
+
+### Issues
+
+- yaourt/pacman 安装 xmind、matlab 失败
+
+- spf13-vim curl 安装失败
