@@ -114,6 +114,15 @@ apt-cache pkgnames
     make
     make install
 
+##### 压缩包内无需安装的软件
+
+压缩包解压后，不能编译安装，则无需安装。将压缩包内对应文件转移到相应目录下即可。
+
+    将解压文件移动到 /usr/lib
+        - $PATH这个环境变量自动涵盖了/usr/lib这个目录，不用专门去修改环境变量
+    建立软链接 ln
+    并将 *.desktop 文件放在 /usr/share/appliations/ 路径下
+
 ##### bin 文件安装
 
 如果你下载到的软件名是 soft.bin，一般情况下是个可执行文件，安装方法如下：
