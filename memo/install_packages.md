@@ -120,7 +120,7 @@ apt-cache pkgnames
 
     将解压文件移动到 /usr/lib
         - $PATH这个环境变量自动涵盖了/usr/lib这个目录，不用专门去修改环境变量
-    建立软链接 ln
+    建立软链接 ln -s /path/to/software /usr/bin/sublime
     并将 *.desktop 文件放在 /usr/share/appliations/ 路径下
 
 ##### bin 文件安装
