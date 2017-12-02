@@ -38,4 +38,10 @@ Ubuntu的默认root密码是随机的，即每次开机都有一个新的root密
 
 ### 多系统启动项修改
 
+丢失 win10 启动项
+
+    sudo update-grub2
+
+others
+
     sudo vim /etc/default/grub
