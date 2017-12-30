@@ -1,11 +1,11 @@
 # 记录安装过程
-> X1 yoga 硬盘 单系统 EFI+GPT 模式安装
+> X1 yoga 固态 单系统 EFI+GPT
 
 ## Pre-installation
 
 #### 联网
 
-无线网环境，执行以下命令，并输入连接到的 wifi 密码：
+无线网环境，执行以下命令，并输入连接到的 wifi 密码
 
     # wifi-menu
 
@@ -75,9 +75,9 @@ ping 命令判断网络连接是否正常
 #### Generate an fstab file
 
     # genfstab -U /mnt >> /mnt/etc/fstab
-    # cat /mnt/etc/fstab #查看文件挂载是否有错误，如无错便不需修改
+    # cat /mnt/etc/fstab # 查看文件挂载是否有错误，如无错便不需修改
 
-#### Change root into the new system:
+#### Change root into the new system
 
     # arch-chroot /mnt
 
@@ -91,7 +91,7 @@ Set the time zone:
     # date
 > 检查时间是否正确
 
-Run hwclock(8) to generate /etc/adjtime:
+Run hwclock(8) to generate /etc/adjtime
 
     # hwclock --systohc
 
@@ -127,15 +127,14 @@ Set the LANG variable in locale.conf
 
 修改如下
 
-    127.0.0.1	localhost.localdomain	localhost
-    ::1		localhost.localdomain	localhost
-    127.0.1.1	arch_luanxxy.localdomain	arch_luanxxy
+    127.0.0.1    localhost.localdomain    localhost
+    ::1    localhost.localdomain    localhost
+    127.0.1.1    arch_luanxxy.localdomain    arch_luanxxy
 
 #### 安装 bootloader
 
     # pacman -S grub-efi-x86_64 efibootmgr
     # grub-install --efi-directory=/boot/efi --bootloader-id=grub
-    #
     # grub-mkconfig -o /boot/grub/grub.cfg
 
 安装后检查

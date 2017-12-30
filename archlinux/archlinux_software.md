@@ -1,10 +1,10 @@
-### 安装yaourt
+### 安装 yaourt
 
 以root权限打开编译/etc/pacman.conf，将下面这三行加入到文件末尾并保存：
 
     [archlinuxcn]
     SigLevel = Never
-    Server   =  http://repo.archlinuxcn.org/$arch
+    Server = http://repo.archlinuxcn.org/$arch
 
 同步软件信息库并安装yaourt
 
@@ -57,7 +57,7 @@ U盘启动进入 livecd 的环境
 
 进行修复
 
-    pacman -S udev 
+    pacman -S udev
     pacman -S mkinitcpio
     mkinincpio -p linux
     ...
