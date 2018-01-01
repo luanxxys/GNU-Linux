@@ -1,6 +1,8 @@
 ### 安装 yaourt
 
-以root权限打开编译/etc/pacman.conf，将下面这三行加入到文件末尾并保存：
+    sudo vim /etc/pacman.conf
+
+将下面这三行加入到文件末尾并保存：
 
     [archlinuxcn]
     SigLevel = Never
@@ -12,7 +14,7 @@
 
 导入GPG Key，否则Yaourt安装软件会报错
 
-    pacman -S archlinuxcn-keyring
+    sudo pacman -S archlinuxcn-keyring
 
 查找有关ambiance的软件包
 
@@ -20,7 +22,7 @@
 
 要安装你需要的软件包，只要输入这个软件包的序数
 
-滚动更新命令使用yaourt
+滚动更新命令使用 yaourt
 
     yaourt -Syu --aur
 

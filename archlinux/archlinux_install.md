@@ -1,224 +1,261 @@
 # 记录安装过程
-> X1 yoga 固态 单系统 EFI+GPT
+> 一、实验室主机，双硬盘，GPU: AMD/ATI Turks XT [Radeon HD 6670/7670]
+>
+> drive2 已安装 win10，在 driver1下安装 archlinux， EFI+GPT 模式安装
 
-## Pre-installation
+> 二、X1 yoga 2016/X1 carbon 2017 固态 单系统 EFI+GPT
 
-#### 联网
+- ## Pre-installation
 
-无线网环境，执行以下命令，并输入连接到的 wifi 密码
+    #### 联网
 
-    # wifi-menu
+    + 有线网，安装前需配置 IP、DNS
 
-ping 命令判断网络连接是否正常
+        查看网卡名称
 
-    # ping -c 3 archlinux.org
+            # ifconfig
 
-#### Verify the boot mode
+        设置网卡子网及 ip
 
-    # ls /sys/firmware/efi/efivars
+            # ifconfig enp3s0 192.168.11.65 netmask 255.255.255.0
 
-#### Update the system clock
+        设置默认网关
 
-    # timedatectl set-ntp true
+            # route add default gw 192.168.11.1
 
-### Partition the disks
+        设置 DNS
 
-#### efi+gpt 模式
+            # vim /etc/resolv.conf
 
-    # parted -l        查看磁盘状态
+            nameserver 202.118.224.100
 
-    # parted /dev/sda       进入分区工具
-    (parted)mklabel gpt     使用gpt引导格式
-    (parted)mkpart primary ext2 1 300M
-    (parted)mkpart primary linux-swap 300M 8G
-    (parted)mkpart primary ext4 8G -1
-    (parted)p
-    (parted)q
+    + 无线网环境，执行以下命令，并输入连接到的 wifi 密码
 
-#### Format the partitions
+            # wifi-menu
 
-    # mkfs.vfat -F32 /dev/sda1
-    # mkswap /dev/sda2
-    # mkfs.ext4 /dev/sda3
+    ping 命令判断网络连接是否正常
 
-#### Mount the file systems
+        # ping -c 3 archlinux.org
 
-    # mount /dev/sda3 /mnt
-    # mkdir -p /mnt/boot/efi
-    # mount /dev/sda1 /mnt/boot/efi
-    # swapon /dev/sda2
+    #### Verify the boot mode
 
-## Installation
+        # ls /sys/firmware/efi/efivars
 
-#### Select the mirrors
+    #### Update the system clock
 
-    # vim /etc/pacman.d/mirrorlist
+        # timedatectl set-ntp true
 
-添加
+    #### Partition the disks
 
-    Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
-    Server = http://mirrors.163.com/archlinux/$repo/os/$arch
-    Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-    Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
-> 把列表下面的浙大源注释掉
+    ##### efi+gpt 模式
 
-然后更新源，升级文件列表
+        # parted -l        查看磁盘状态
 
-    # pacman -Syy
+        # parted /dev/nvme0n1p       进入分区工具
+        (parted)mklabel gpt     使用gpt引导格式
+        (parted)mkpart primary ext2 1 300M
+        (parted)mkpart primary linux-swap 300M 8G
+        (parted)mkpart primary ext4 8G -1
+        (parted)p
+        (parted)q
 
-#### Install the base packages
+    ##### Format the partitions
 
-    # pacstrap /mnt base base-devel
+        # mkfs.vfat -F32 /dev/nvme0n1p1
+        # mkswap /dev/nvme0n1p2
+        # mkfs.ext4 /dev/nvme0n1p3
 
-## Configure the system
+    ##### Mount the file systems
 
-#### Generate an fstab file
+        # mount /dev/nvme0n1p3 /mnt
+        # mkdir -p /mnt/boot/efi
+        # mount /dev/nvme0n1p1 /mnt/boot/efi
+        # swapon /dev/nvme0n1p2
 
-    # genfstab -U /mnt >> /mnt/etc/fstab
-    # cat /mnt/etc/fstab # 查看文件挂载是否有错误，如无错便不需修改
+- ## Installation
 
-#### Change root into the new system
+    #### Select the mirrors
 
-    # arch-chroot /mnt
+        # vim /etc/pacman.d/mirrorlist
 
-#### Time zone
+    添加
 
-Set the time zone:
+        Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+        Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+            ... 国内源 ...
+    > 把列表下面的国内源转移到列表最上方
 
-    # rm /etc/localtime
-    # ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    然后更新源，升级文件列表
 
-    # date
-> 检查时间是否正确
+        # pacman -Syy
 
-Run hwclock(8) to generate /etc/adjtime
+    #### Install the base packages
 
-    # hwclock --systohc
+        # pacstrap /mnt base base-devel
 
-#### 安装网络驱动
+- ## Configure the system
 
-    # pacman -S vim iw wpa_supplicant dialog
-> 无线环境下安装必要组件
+    #### Generate an fstab file
 
-#### Locale
+        # genfstab -U /mnt >> /mnt/etc/fstab
+        # cat /mnt/etc/fstab #查看文件挂载是否有错误，如无错便不需修改
 
-    # vim /etc/locale.gen
+    #### Change root into the new system
 
-取消注释：
+        # arch-chroot /mnt
 
-    en_US.UTF-8
-    zh_CN.UTF-8
-    zh_CN.GBK
-    zh_CN.GB2312
+    #### Time zone
 
-generate them with:
+        # rm /etc/localtime
+        # ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-    # locale-gen
+        # date
+    > 检查时间是否正确
 
-Set the LANG variable in locale.conf
+    Run hwclock(8) to generate /etc/adjtime
 
-    # echo LANG=en_US.UTF-8 > /etc/locale.conf
+        # hwclock --systohc
 
-#### Hostname
+    #### 安装无线网络驱动
 
-    # echo arch_luanxxy > /etc/hostname
+        # pacman -S vim iw wpa_supplicant dialog
+    > 无线环境下安装必要组件
 
-    # vim /etc/hosts
+    #### locale
 
-修改如下
+        # vim /etc/locale.gen
 
-    127.0.0.1    localhost.localdomain    localhost
-    ::1    localhost.localdomain    localhost
-    127.0.1.1    arch_luanxxy.localdomain    arch_luanxxy
+    取消注释：
 
-#### 安装 bootloader
+        en_US.UTF-8
+        zh_CN *
 
-    # pacman -S grub-efi-x86_64 efibootmgr
-    # grub-install --efi-directory=/boot/efi --bootloader-id=grub
-    # grub-mkconfig -o /boot/grub/grub.cfg
+    generate them with:
 
-安装后检查
+        # locale-gen
 
-    # vim /boot/grub/grub.cfg
+    Set the LANG variable in locale.conf
 
-#### Root password
+        # echo LANG=en_US.UTF-8 > /etc/locale.conf
 
-登陆 root 账号，设置密码
+    #### Hostname
 
-    # passwd
+        # echo arch_luanxxys > /etc/hostname
 
-#### add user
+        # vim /etc/hosts
 
-    # useradd -g users -s /bin/bash -m luanxxy
-    # passwd luanxxy
+    修改如下
 
-    # pacman -S sudo
-    # vim /etc/sudoers
-> 在 root ALL=(ALL)下面仿照格式添加自己的用户名
+        127.0.0.1   localhost.localdomain   localhost
+        ::1     localhost.localdomain   localhost
+        127.0.1.1   arch_luanxxys.localdomain    arch_luanxxys
 
-#### 设置pacman彩色输出
+    #### 安装 bootloader
 
-打开/etc/pacman.conf文件，找到被注释的#Color，改为Color。pacman就会输出彩色信息，方便查看
+        # pacman -S grub-efi-x86_64 efibootmgr
+        # grub-install --efi-directory=/boot/efi --bootloader-id=grub
+        # grub-mkconfig -o /boot/grub/grub.cfg
 
-#### 安装Intel-ucode
+    安装后检查
 
-    # pacman -S intel-ucode
+        # vim /boot/grub/grub.cfg
 
-#### 安装显卡（intel 集成显卡）
+    #### Root password
 
-    sudo pacman -S xf86-video-intel
+    登陆 root 账号，设置密码
 
-#### 安装Xorg
+        # passwd
 
-    sudo pacman -S xorg-server xorg-xinit
+    #### add user
 
-#### 安装桌面管理器
+        # useradd -g users -s /bin/bash -m luanxxys
+        # passwd luanxxys
 
-    sudo pacman -S gdm
-> 若安装 gnome，则不用单独安装 gdm
+        # pacman -S sudo
+        # chmod +w /etc/sudoers
+        # vim /etc/sudoers
+    > 在 root ALL=(ALL)下面仿照格式添加自己的用户名
 
-设置开机启动 gdm 服务
+        # chmod -w /etc/sudoers
 
-    sudo systemctl enable gdm
+    #### 设置 pacman 彩色输出
 
-设置gdm背景，输入以下指令
+            # vim /etc/pacman.conf
 
-    curl -L -O http://archibold.io/sh/archibold
-    chmod +x archibold
-    ./archibold login-backgroung 你的背景的地址
-> 重启后gdm就会变成你要的背景
+    找到被注释的 #Color，改为 Color。pacman就会输出彩色信息
 
-#### 安装图形界面
+    #### 安装 Intel-ucode
 
-安装 i3 窗口管理器
+        # pacman -S intel-ucode
 
-    sudo pacman -S i3
+    #### 安装显卡（intel 集成显卡）
 
-安装 Gnome
+        # pacman -S xf86-video-intel
 
-    sudo pacman -S gnome
-> 各图形界面下，只有 gnome 环境下 chrome 能直接使用 lantern
+    #### 安装 Xorg
 
-#### 启动图形界面前提前配置网络
+        # pacman -S xorg-server xorg-xinit
 
-    sudo pacman -S network-manager-applet
-    sudo systemctl disable netctl
-    sudo systemctl enable NetworkManager
+    #### 安装图形界面
 
-####  安装字体
+    安装 gnome
 
-首先使用pacman搜索一下所有字体，然后安装所需的字体：
+        # pacman -S gnome
 
-    # pacman -Ss font
+    设置开机启动 gdm 服务
+    > 若安装 gnome，则不用单独安装 gdm
 
-安装文泉微米黑
+        # systemctl enable gdm
 
-    # pacman -S wqy-microhei
+    设置 gdm 背景，输入以下指令
 
-#### Reboot
+        curl -L -O http://archibold.io/sh/archibold
+        chmod +x archibold
+        ./archibold login-backgroung 你的背景的地址
+    > 重启后gdm就会变成你要的背景
 
-    # exit
-    # umount /mnt/boot
-    # umount /mnt
-    # reboot
-> 卸载掉 iso 文件之后 reboot
+    安装 i3 窗口管理器
+
+        sudo pacman -S i3
+
+    #### 启动图形界面前提前配置网络
+
+        # pacman -S network-manager-applet
+        # systemctl disable netctl
+        # systemctl enable NetworkManager
+
+    #### 安装字体
+
+    文泉微米黑
+
+        # pacman -S wqy-microhei
+
+        > 搜索一下所有字体: `# pacman -Ss font`
+
+    #### Reboot
+
+        # exit
+        # umount /mnt/boot/efi
+        # umount /mnt
+        # reboot
+    > 卸载掉 iso 文件之后 reboot
+
+    #### 安装 AMD 显卡驱动
+
+    查看显卡信息
+
+        lspci | grep VGA
+
+    查看显卡状态
+
+        # cat /sys/kernel/debug/vgaswitcheroo/switch
+    > 不一定显示有这个文件夹
+
+    安装
+
+        yaourt catalyst
+    > 暂未成功
+
+### 安装效果
+
+双硬盘台式机开机默认启动 Arch Linux，且无 win10 启动项。开机 F12，可选择 Windows boot
