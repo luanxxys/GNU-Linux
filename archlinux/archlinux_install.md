@@ -15,7 +15,7 @@
 
             # ifconfig
 
-        设置网卡子网及 ip
+        设置网卡子网及 ipfc-cache -vf
 
             # ifconfig enp3s0 192.168.11.65 netmask 255.255.255.0
 
@@ -184,14 +184,6 @@
 
     找到被注释的 #Color，改为 Color。pacman就会输出彩色信息
 
-    #### 安装 Intel-ucode
-
-        # pacman -S intel-ucode
-
-    #### 安装显卡（intel 集成显卡）
-
-        # pacman -S xf86-video-intel
-
     #### 安装 Xorg
 
         # pacman -S xorg-server xorg-xinit
@@ -224,12 +216,32 @@
         # systemctl disable netctl
         # systemctl enable NetworkManager
 
+    #### 安装驱动
+
+        # pacman -S intel-ucode
+        # pacman -S xf86-video-intel（intel 集成显卡）
+        # pacman -S alsa-lib alsa-utils alsa-oss（声卡，alsa-lib 默认安装了）
+        # pacman -S xf86-input-synaptics（触摸板）
+        # yaourt thinkfan
+            #　systemctl enable thinkfan.service
+            风扇控制， /etc/thinkfan.conf，修改最后的几行数字。语法：(Level, Low, High
+
+        # yaourt -S fingerprint-gui（指纹识别）
+            当前用户添加到plugdev和scanner组中
+                # usermod -a -G plugdev,scanner luanxxys
+            在/etc/pam.d/中的su,sudo,login,gdm等文件里添加
+                auth       required pam_env.so
+                auth       sufficient   pam_fingerprint-gui.so
+                auth       sufficient   pam_unix.so try_first_pass likeauth nullok
+                auth       required pam_deny.so
+
     #### 安装字体
 
     文泉微米黑
 
-        # pacman -S wqy-microhei
-
+        # pacman -S ttf-bitstream-vera ttf-dejavu ttf-droid wqy-microhei
+        # yaourt ttf-ms-fonts
+        # fc-cache -vf
         > 搜索一下所有字体: `# pacman -Ss font`
 
     #### Reboot
