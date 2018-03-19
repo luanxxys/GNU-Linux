@@ -2,21 +2,21 @@
 
     sudo vim /etc/pacman.conf
 
-将下面这三行加入到文件末尾并保存：
+将下面这三行加入到文件末尾并保存
 
     [archlinuxcn]
     SigLevel = Never
     Server = http://repo.archlinuxcn.org/$arch
 
-同步软件信息库并安装yaourt
+同步软件信息库并安装 yaourt
 
     sudo pacman -Sy yaourt fakeroot
 
-导入GPG Key，否则Yaourt安装软件会报错
+导入GPG Key，否则 Yaourt 安装软件会报错
 
     sudo pacman -S archlinuxcn-keyring
 
-查找有关ambiance的软件包
+查找有关 ambiance 的软件包
 
     yaourt ambiance
 
@@ -38,7 +38,7 @@
 
 ### 软件
 
-[参考](https://github.com/luanxxys/software)
+[参考](https://github.com/luanxxys/env/software)
 
 ### Issues
 

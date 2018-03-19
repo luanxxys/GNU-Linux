@@ -1,4 +1,5 @@
 windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得在用 telnet 登录远程服务器或查看 windows 文件时出现乱码。
+
 则需要将 ubuntu 环境设置为 GBK 或  GB2312 ，或设置软件使其正确显示汉字。
 
 下面以 GBK 字符集为例进行说明
@@ -42,7 +43,7 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
 
         在 termial 窗口上点击菜单：
 
-            终端->设置字符编码->选择 GBK
+            终端->设置字符编码 -> 选择 GBK
 
     - #### 解决文件名，mp3 标签，文本文件的中文乱码
 
@@ -76,7 +77,7 @@ windows 默认字符集是 GBK，Ubuntu 的默认字符集为 utf-8，这使得�
         gedit 默认编码是 UTF8，打开 windows 下编辑的 GB2312 的文档都是乱码。
 
         解决方法之一就是把 gedit 的编码改为 GB2312 ，方法如下：
-        
+
             1. 在 Applications 菜单上点右键，选择 EditMenu，在 MainMenu 的对话框中勾选 SystemTools－ConfigurationEditor，并从 Applications 菜单中开启。
             2. 依次开启 /apps/gedit-2/preferences/encodings/ 双击右侧 auto_detected, 在弹出对话框中点选 Add，添加 Values 值为 GB2312 ,确定后选中，点选 Up 按钮将其移至第一位。
             3. 同样方法，对 show_in_menu 进行设置，并将 GB2312 置于首位。

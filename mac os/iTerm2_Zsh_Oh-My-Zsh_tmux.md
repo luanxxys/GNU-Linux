@@ -1,8 +1,8 @@
-[reference](http://www.dreamxu.com/mac-terminal/)
+# iTerm2 + oh-my-zsh + Tmux
 
 ### iTerm2
 
-[官方网站](http://www.iterm2.com/)
+http://www.iterm2.com/
 
 hotkey|function
 ---|---
@@ -44,11 +44,11 @@ hotkey|function
 
 Mac 系统自带了 Zsh,Homebrew 来安装最新版
 
-	brew install zsh
+    brew install zsh
 
 查看 Zsh 的版本
 
-	zsh --version 
+    zsh --version
 
 使用 echo $ZSH_VERSION 命令查看当前使用的 Zsh 版本
 
@@ -56,11 +56,11 @@ Mac 系统自带了 Zsh,Homebrew 来安装最新版
 
 1. 在 /etc/shells 文件中加入如下一行
 
-		/usr/local/bin/zsh
+        /usr/local/bin/zsh
 
 2. 然后运行命令
 
-		chsh -s /usr/local/bin/zsh
+        chsh -s /usr/local/bin/zsh
 
 ### Oh My Zsh
 
@@ -70,4 +70,6 @@ https://github.com/robbyrussell/oh-my-zsh
 
 一个终端复用软件，可将终端方案化
 
-[官方网站](http://tmux.github.io/)
+http://tmux.github.io/
+
+### [reference](http://www.dreamxu.com/mac-terminal/)

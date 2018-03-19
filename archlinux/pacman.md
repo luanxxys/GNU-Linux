@@ -4,7 +4,7 @@
 
         # pacman -Syu
 
-    如果你已经使用 pacman -Sy 将本地的包数据库与远程的仓库进行了同步，也可以只执行：
+    如果你已经使用 pacman -Sy 将本地的包数据库与远程的仓库进行了同步，也可以只执行
 
         # pacman -Su
 
@@ -61,8 +61,8 @@
 
     清理未安装的包文件
 
-        # pacman -Sc Pacman 
-    > 下载的包文件位于 /var/cache/pacman/pkg/ 目录。
+        # pacman -Sc Pacman
+    > 下载的包文件位于 /var/cache/pacman/pkg/ 目录
 
     清理所有的缓存文件
 

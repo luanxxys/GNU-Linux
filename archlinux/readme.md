@@ -1,3 +1,7 @@
-## 关于 Archlinux
+# Archlinux
 
-先填坑，各种需要完善... ...
+- ### [Installation](archlinux_install.md)
+
+- ### [common software](archlinux_software.md)
+
+- ### [man pacman](pacman.md)

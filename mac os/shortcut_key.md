@@ -1,3 +1,5 @@
+# Hot key
+
 名称|符号
 ---|---
 Command|⌘
@@ -17,7 +19,7 @@ Command-Option-Ctrl-⏏|关机
 Command-Option-⏏|睡眠
 Command-Shift-Option-Q|注销
 
-### Qucktime 
+### Qucktime
 
 自动播放
 

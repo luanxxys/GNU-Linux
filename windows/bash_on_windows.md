@@ -1,9 +1,9 @@
 ### 版本检测
 
-uname -a
+    uname -a
 > uname 命令就是 Unix Name 的简写。显示机器名，操作系统和内核信息
 
-或运行 
+或运行
 
     lsb_release -a
 
@@ -21,6 +21,6 @@ uname -a
 
     vim /etc/passwd
 
-把 JACK 这个帐户对应的默认目录 `/home/JACK` 改为 `/home/JACK/code` 
+把 JACK 这个帐户对应的默认目录 `/home/JACK` 改为 `/home/JACK/code`
 
-则每次登录时都会打开到 `code` 
+则每次登录时都会打开到 `code`

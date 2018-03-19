@@ -1,3 +1,5 @@
+# APT
+
 APT（Advanced Packaging Tool，高级软件包管理工具），由 Debian 首创，它用于方便而高效地进行软件包的安装，能自动处理软件相互之间的依赖关系，并且在软件包升级过程中维护好配置文件。
 
 1. 软件包安装
@@ -34,7 +36,6 @@ APT（Advanced Packaging Tool，高级软件包管理工具），由 Debian 首�
         echo "foo install" | sudo dpkg --set-selections
     > 删除“hold”“locked package”状态设置
 
-
 1. 软件包删除
 
         apt remove <deb_name>
@@ -45,7 +46,6 @@ APT（Advanced Packaging Tool，高级软件包管理工具），由 Debian 首�
 
         apt autoremove
     > 删除为了满足其他软件包的依赖而安装的，但现在不再需要的软件包
-
 
 1. 软件包搜索
 

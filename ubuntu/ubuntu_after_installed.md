@@ -1,12 +1,23 @@
+# Configuration
+
+<!-- MarkdownTOC -->
+
+- 添加源
+- root 用户
+- 软件
+- 多系统启动项修改
+
+<!-- /MarkdownTOC -->
+
 ### 添加源
 
 - #### 保存源配置文件的原文件
 
-       sudo mv /etc/apt/sources.list /etc/apt/sources.list.save
+        sudo mv /etc/apt/sources.list /etc/apt/sources.list.save
 
 - #### 新增阿里云源
 
-    sudo vim /etc/apt/sources.list
+        sudo vim /etc/apt/sources.list
 
         deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
         deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
@@ -21,14 +32,9 @@
 
 ### root 用户
 
-Ubuntu的默认root密码是随机的，即每次开机都有一个新的root密码。 但我们可以：
+Ubuntu 的默认 root 密码是随机的，即每次开机都有一个新的 root 密码。 但我们可以
 
-    sudo passwd
-
-        Password: <--- 输入安装时那个用户的密码
-        Enter new UNIX password: <--- 新的Root用户密码
-        Retype new UNIX password: <--- 重复新的Root用户密码
-        passwd：已成功更新密码
+    sudo passwd su
 
 ### 软件
 

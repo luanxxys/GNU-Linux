@@ -1,3 +1,5 @@
+# DNF
+
 ### dnf list
 
 > 列出用户系统上的所有来自软件库的可用软件包和所有已经安装在系统上的软件包
@@ -32,9 +34,9 @@
 
 ### dnf update 或 dnf upgrade
 
->升级所有系统软件包
+> 升级所有系统软件包
 >
->升级系统中所有有可用升级的软件包
+> 升级系统中所有有可用升级的软件包
 
 ### dnf remove <package_name> 或 dnf erase <package_name>
 

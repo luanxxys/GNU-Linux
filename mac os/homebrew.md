@@ -1,11 +1,11 @@
-### 安装 brew
+# Homebrew
 
-安装命令如下
+### Installation
 
     curl -L http://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C /usr/local
 
-### 安装软件
+### Usage
 
-当brew安装成功后，就可以随意安装自己想要的软件了，例如wget，命令如下：
+eg
 
-    sudo brew install wget 
+    $ sudo brew install wget

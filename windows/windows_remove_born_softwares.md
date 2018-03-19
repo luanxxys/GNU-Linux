@@ -1,4 +1,4 @@
-### uninstall Windows born softwares
+# uninstall Windows born softwares
 
 以管理员身份运行 Windows PowerShell
 
@@ -22,7 +22,7 @@ Camera相机
 
 	Get-AppxPackage *bing* | Remove-AppxPackage
 
-Groove音乐、电影与电视
+Groove 音乐、电影与电视
 
 	Get-AppxPackage *zune* | Remove-AppxPackage
 
