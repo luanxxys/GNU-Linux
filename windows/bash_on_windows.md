@@ -1,3 +1,9 @@
+# Bash on windows
+
+- [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+
+## ¼òµ¥¼ÇÂ¼
+
 ### °æ±¾¼ì²â
 
     uname -a
