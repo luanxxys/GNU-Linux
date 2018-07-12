@@ -8,9 +8,9 @@
 
 ## Catalog
 
-    ├── [Archliunx](archlinux)
-    ├── [Debian](debian)
-        └── [Ubuntu](ubuntu)
+    ├── Archliunx
+    ├── Debian
+        └── Ubuntu
             └── Linux Mint
             └── Elementary OS
             └── Kubuntu
