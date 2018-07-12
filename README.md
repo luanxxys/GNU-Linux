@@ -28,16 +28,16 @@
 
 此文件夹主要放置一些 linux 有关的笔记. 例如
 
-- [初学Linux技巧](command/初学Linux技巧.pdf)
-- [Linux 开机引导和启动过程详解](command/Linux开机引导和启动过程详解.pdf)
-- [Linux 初始化系统的运行级别](command/Linux初始化系统的运行级别.md)
-- [linux的进程调度](command/linux的进程调度.pdf)
-- [Linux 文件系统预览](command/Linux文件系统预览.pdf)
-- [Linux文件目录](command/directory.md)
-- [文件目录和权限命令](command/文件目录和权限命令.md)
-- [软件安装方式](command/install_packages.md)
+- [初学Linux技巧](memo/初学Linux技巧.pdf)
+- [Linux 开机引导和启动过程详解](memo/Linux开机引导和启动过程详解.pdf)
+- [Linux 初始化系统的运行级别](memo/Linux初始化系统的运行级别.md)
+- [linux的进程调度](memo/linux的进程调度.pdf)
+- [Linux 文件系统预览](memo/Linux文件系统预览.pdf)
+- [Linux文件目录](memo/directory.md)
+- [文件目录和权限命令](memo/文件目录和权限命令.md)
+- [软件安装方式](memo/install_packages.md)
 
-其中 [command](command) 文件夹, 存放着 Linux 环境下常用到的命令. 如
+其中 [command](memo/command) 文件夹, 存放着 Linux 环境下常用到的命令. 如
 
 - [命令缩略词](memo/command/command_abbr.md)
 - [压缩-解压缩命令](memo/command/extract_unzip.md)
