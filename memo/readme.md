@@ -10,6 +10,7 @@
 - [Linux文件目录](directory.md)
 - [文件目录和权限命令](文件目录和权限命令.md)
 - [软件安装方式](install_packages.md)
+- [重置Linux系统密码方法](重置Linux系统密码方法.pdf)
 
 其中 [command](command) 文件夹, 存放着 Linux 环境下常用到的命令. 如
 
