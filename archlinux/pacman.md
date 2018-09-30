@@ -1,6 +1,6 @@
-### Pacman
+# Pacman
 
-1. 更新系统
+1. ### 同步源并更新系统
 
         # pacman -Syu
 
@@ -8,10 +8,10 @@
 
         # pacman -Su
 
-1. 安装包
+1. ### 安装包
 
         # pacman -S <package_name>
-    > 你也可以同时安装多个包，只需以空格分隔即可。
+    > 你也可以同时安装多个包，只需以空格分隔即可
 
     在同步包数据库后再执行安装
 
@@ -23,9 +23,13 @@
 
     安装本地包，其扩展名为 pkg.tar.gz
 
-        # pacman -U
+        # pacman -U <package_name>
 
-1. 删除包
+    升级时不升级包
+
+        # pacman pacman -Su --ignore <package_name>
+
+1. ### 删除包
 
     只删除包，不包含该包的依赖
 
@@ -35,25 +39,31 @@
 
         # pacman -Rs <package_name>
 
+    删除包和它依赖的包
+
+        # pacman -Rsc abc
+
     在删除包时不检查依赖
 
         # pacman -Rd <package_name>
 
-1. 搜索包
+1. ### 搜索包
 
     搜索含关键字的包
 
-        # pacman -Ss 关键字
+        # pacman -Ss <package_name>
 
-    查看有关包的信息
+    查看有已经安装的包的信息
 
         # pacman -Qi <package_name>
+
+    > 用 -Q 标志搜索和查询本地包数据库
 
     列出该包的文件
 
         # pacman -Ql <package_name>
 
-1. 其他用法
+1. ### 其他用法
 
     只下载包，不安装
 
@@ -71,3 +81,5 @@
     清理孤立的程序
 
         # pacman -Qdt
+
+[Archlinux:Pacman (简体中文)](https://wiki.archlinux.org/index.php/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
