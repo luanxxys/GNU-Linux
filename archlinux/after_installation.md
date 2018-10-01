@@ -56,6 +56,12 @@
 
 > 安装 fingerprint-gui 后，提示找不到指纹设备（x1 yoga 2016）
 
+### [TLP](https://wiki.archlinux.org/index.php/TLP_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+
+    $ yaourt tlp
+    $ systemctl enable tlp.service tlp-sleep.service
+    $ systemctl disable systemd-rfkill.service systemd-rfkill.socket
+
 ### [软件](https://github.com/luanxxys/env/software)
 
 ### arch-chroot 修复系统
