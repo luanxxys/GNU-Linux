@@ -234,7 +234,7 @@
 
     ### 安装字体
 
-        # pacman -S wqy-microhei ttf-dejavu wqy-zenhei wqy-microhei
+        # pacman -S wqy-microhei ttf-dejavu wqy-zenhei
         # fc-cache -vf
         > 搜索一下所有字体: `# pacman -Ss font`
 
