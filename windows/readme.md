@@ -5,4 +5,4 @@
 - [battery report](battery_report.md)
 - [删除原生应用](windows_remove_born_softwares.md)
 
-暂且放到 linux 仓库 ......
+暂且放到 linux 仓库。

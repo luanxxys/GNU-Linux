@@ -4,8 +4,8 @@
 
 - [常用快捷键](shortcut_key.md)
 
-- [homebrew](homebrew.md)
+- [homebrew](https://brew.sh/)
 
 - [iTerm2 + oh-my-zsh + Tmux](iTerm2_Zsh_Oh-My-Zsh_tmux.md)
 
-暂且放在 `linux` 文件夹下吧... ...虽然它属于 unix
+暂且放在 `linux` 文件夹下吧... ...虽然它属于 unix.
